@@ -1,0 +1,126 @@
+@import "../../_base.scss";
+
+.videoMetaData{
+
+    &__top{
+        padding-bottom: 12px;
+        border-bottom: 2px solid $border-color;
+
+        h4{
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        &__details{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+        
+            &__right{
+                display: flex;
+                align-items: center;
+    
+                span{
+                    margin-left: 12px;
+                }
+    
+            }
+        }
+
+    }
+
+    &__description{
+
+        padding-top: 12px;
+        display: flex;
+        border-bottom: 2px solid $border-color;
+
+        &__left{
+
+            padding-right: 12px;
+
+            img{
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+        }
+
+        &__right{
+
+            padding-top: 10px;
+            width: 100%;
+
+            .channel{
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &__left{
+
+                    span{
+                        font-size: 16px;
+                    }
+
+                    p{
+                        font-size: 12px;
+                        opacity: 0.7;
+                    }
+
+                }
+
+                &__right{
+
+                    button{
+
+                        padding: 0.5rem 1.5rem;
+                        background-color: #CC0000;
+                        text-transform: uppercase;
+                        color: white;
+                        font-weight: 700;
+                        border: none;
+                        outline: none;
+                        border-radius: 3px;
+                        cursor: pointer;
+
+                        &:hover{
+                            opacity: 0.8;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .channel__bottom{
+                margin-top: 30px;
+                width: 100%;                    
+
+                span{
+                    width: 100%;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: rgb(228, 228, 228);
+
+                    .my-anchor-css-class{
+                        text-decoration: none;
+                        display: block;
+                        margin: 1rem 0;
+                        color: rgb(156, 156, 156);
+                        font-weight: 700;
+                        font-weight: 14px;
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,85 @@
+@import "../../_base.scss";
+
+.videoHozizontal{
+
+    display: flex;
+    margin-bottom: 10px;
+
+    &__left{
+
+        img{
+            width: 168px;
+            padding-right: 10px;
+        }
+
+    }
+
+    &__right{
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &__title{
+            font-size: 16px;
+            font-weight: 500;
+            @include line-clamp(2);
+            margin-bottom: 5px;
+        }
+
+        &__chennel{
+            color: rgb(197, 197, 197);
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+
+    }
+
+}
+
+
+@media (max-width: $breakpoint-medium) {
+
+    .videoHozizontal{
+
+        display: flex;
+        margin-bottom: 10px;
+    
+        &__left{ 
+            width: 50%;
+            img{
+                width: 100%;
+                padding-right: 10px;
+            }
+    
+        }
+    
+        &__right{
+    
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+    
+            &__title{
+                font-size: 16px;
+                font-weight: 500;
+                @include line-clamp(2);
+                margin-bottom: 5px;
+            }
+    
+            &__chennel{
+                color: rgb(197, 197, 197);
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+    
+    
+        }
+    
+    }
+    
+    
+    
+
+}

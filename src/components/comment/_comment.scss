@@ -1,0 +1,56 @@
+
+.comments__section{
+
+    margin-bottom: 12px;
+
+    &__single{
+
+        display: flex;
+
+        &__left{
+
+            padding-right: 12px;
+
+            img{
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+        }
+
+        &__right{
+
+            &__top{
+
+                padding-top: 12px;
+                padding-bottom: 8px;
+                font-size: 16px;
+                span{
+
+                    font-size: 12px;
+                    opacity: 0.8;
+                    margin-left: 10px;
+
+                }
+            }
+
+            
+
+            &__bottom{
+
+                font-size: 14px;
+                line-height: 22px;
+                color: rgb(228, 228, 228);
+
+
+
+            }
+
+        }
+
+    }
+
+
+}

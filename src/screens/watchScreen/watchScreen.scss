@@ -1,1 +1,45 @@
+@import "../../base";
 
+
+.watchScreen{
+
+    display: flex;
+    padding: 24px;
+
+    &__left{
+        flex: 8;
+        padding-right: 24px;
+
+        &__player{
+            height: 60vh;
+            background-color: rgb(26, 26, 26);
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+    }
+    &__right{
+        flex: 4;
+    }
+}
+
+@media (max-width: $breakpoint-medium) {
+
+    .watchScreen{
+
+        display: block;
+        padding: 24px;
+    
+        &__left{
+            flex: 1;
+            padding-right: 0px;
+    
+        }
+        &__right{
+            margin-top: 3rem;
+            flex: 1;
+        }
+    }
+    
+
+}
