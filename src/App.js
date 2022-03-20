@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Header from "./components/header/Header"
+import Sidebar from "./components/sidebar/Sidebar";
+import HomeScreen from "./screens/homeScreen/HomeScreen";
+import LoginScreen from "./screens/loginScreen/LoginScreen";
+import "./_app.scss"
+import { Routes, Route, Navigate, useNavigate} from "react-router-dom"
+import { useSelector } from "react-redux";
+
+const Layout = ({children}) => {
+  
+  const [sidebar, setSidebar] = useState(false);
+
+  const handleToggleSidebar = () => setSidebar(prev => !prev)
+
+  return (
+    <>
+     <Header handleToggleSidebar={handleToggleSidebar}/>
+     <div className="app__container">
+       <Sidebar sidebar={sidebar} handleToggleSidebar={handleToggleSidebar}/>
+       <section className="app__main">
+        {children}
+       </section>
+     </div>
+    </>
+  )
+}
 
 function App() {
+
+  const {accessToken, loading} = useSelector(state => state.auth)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!loading && !accessToken){
+      navigate("/auth")
+    }
+  }, [accessToken, loading, navigate])
+  
+
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <Routes>
+        <Route path="/" element={ 
+          <Layout>
+            <HomeScreen/>
+          </Layout> 
+        } />
+        <Route path="/search" element={ 
+          <Layout>
+            <h1>Search</h1>
+          </Layout> 
+        } />
+        <Route path="/auth" element={<LoginScreen/>} />
+        <Route path="*" element={<Navigate to="/"/>} />
+      </Routes>
+  )
 }
 
 export default App;

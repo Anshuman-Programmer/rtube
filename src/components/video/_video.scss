@@ -1,0 +1,77 @@
+@import "../../_base.scss";
+
+.video{
+
+    &__top{
+
+        position: relative;
+
+        .lazy-load-image-background{
+
+            min-height: 150px;
+
+            img{
+                width: 100%;
+            }
+            
+        }
+
+        .video__duration{
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+
+            padding: 0.2rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+    }
+
+    &__bottom{
+
+        display: flex;
+
+        &__left{
+            margin-top: 12px;
+            margin-right: 12px;
+
+            .lazy-load-image-background{
+
+                img{
+                    height: 36px;
+                    width: 36px;
+                    object-fit: cover;
+                    border-radius: 50%; 
+                }
+                
+            }
+        }
+
+        &__right{
+
+            margin-top: 4px;
+
+            .video__title{
+                color: white;
+                font-size: 1rem;
+                font-weight: 500;
+                @include line-clamp(2)
+            }
+
+            .channel__name{
+                margin-top: 0.3rem;
+                font-size: 0.8rem;
+            }
+
+            .video__views{
+                margin-top: 0.3rem;
+                font-size: 0.7rem;
+            }
+            
+        }
+
+    }
+
+}

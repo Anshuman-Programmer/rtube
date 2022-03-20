@@ -1,0 +1,69 @@
+@import "../../_base.scss";
+
+.sidebar{
+    width: 240px;
+    background-color: $black-secondary;
+    transition: transform 0.2s ease-in;
+    height: calc(100vh - 56px);
+    position: sticky;
+    top: 56px;
+    left: 0;
+
+    li{
+        list-style: none;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        // padding-left: 24px;
+
+        svg{
+            flex: 0.3
+        }
+
+        span{
+            flex: 0.7
+        }
+
+        &:hover{
+            background-color: rgba(245, 245, 245, 0.05);
+        }
+    }
+
+    hr{
+        border-color: $black-primary;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &.open{
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: $breakpoint-medium) {
+
+    .sidebar {
+        min-width: 90px;
+        width: 90px;
+        li {
+            justify-content: center;
+        }
+        span {
+            display: none;
+        }
+
+    }
+
+}
+
+@media (max-width: $breakpoint-small) {
+    .sidebar {
+        min-width: 60px;
+        width: 60px;
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 999;
+    }
+}
+
