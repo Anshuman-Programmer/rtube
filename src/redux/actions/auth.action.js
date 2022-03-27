@@ -36,8 +36,6 @@ export const login = () => async dispatch => {
         })
         
     } catch (error) {
-
-        console.log(error)
         dispatch({
             typr: LOGIN_FAIL,
             payload: error.message

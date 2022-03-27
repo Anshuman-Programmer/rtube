@@ -8,6 +8,7 @@ const keywords = [
   "All",
   "Anshuman",
   "Rajnandini",
+  "Dynamo Gaming",
   "Gaming",
   "react",
   "photoshop",

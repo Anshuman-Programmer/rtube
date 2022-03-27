@@ -22,7 +22,12 @@
                 align-items: center;
     
                 span{
-                    margin-left: 12px;
+                    
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin-left: 12px;
+                    }
                 }
     
             }
@@ -75,10 +80,17 @@
 
                 &__right{
 
+                    .red{
+                        background-color: #CC0000;
+                    }
+
+                    .gray {
+                        color: rgb(71, 71, 71);
+                    }
+
                     button{
 
                         padding: 0.5rem 1.5rem;
-                        background-color: #CC0000;
                         text-transform: uppercase;
                         color: white;
                         font-weight: 700;

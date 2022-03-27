@@ -2,22 +2,35 @@
 import "./_videoHorizontal.scss"
 import numeral from "numeral";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
-const VideoHozizontal = () => {
+const VideoHozizontal = ({video}) => {
+
+  const {id, snippet: { chennelId, channelTitle, description, title, publishedAt, thumbnails}} = video
+
+  const navigate = useNavigate()
+
+  const handleRelatedVideoClick = () => {
+
+    navigate(`/watch/${id.videoId}`)
+
+  }
+
   return (
-    <div className="videoHozizontal">
+    <div className="videoHozizontal" onClick={handleRelatedVideoClick}>
       <div className="videoHozizontal__left">
         <img 
-          src="https://i.ytimg.com/vi/pfaSUYaSgRo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCJ1LU0f5_O04onDMeebgiK2ZONrA"
+          src={thumbnails?.medium?.url}
           alt="thumbnail"
         />
       </div>
       <div className="videoHozizontal__right">
         <h5 className="videoHozizontal__right__title">
-          Ultimate Tailwind CSS Tutorial // Build a Discord-inspired Animated Navbar
+          {title}
         </h5>
-        <span className="videoHozizontal__right__chennel">Fireship</span>
-        <span className="videoHozizontal__right__chennel">{numeral(121321).format("0.a")} views • {moment("2022-01-03").fromNow()}</span>
+        <span className="videoHozizontal__right__chennel">{channelTitle}</span>
+        <span className="videoHozizontal__right__chennel">{moment(publishedAt).fromNow()}</span> 
+        {/* {numeral(121321).format("0.a")} views •  */}
       </div>
     </div>
   )

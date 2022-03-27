@@ -12,18 +12,21 @@ import {
 } from 'react-icons/md'
 import { useDispatch } from "react-redux"
 import { logout } from "../../redux/actions/auth.action"
+import { useNavigate } from "react-router-dom"
 
 const Sidebar = ({sidebar, handleToggleSidebar}) => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     dispatch(logout())
+    navigate("/auth")
   }
 
   return (
     <nav className={sidebar ? "sidebar open" : "sidebar"} onClick={() => handleToggleSidebar()}>
-      <li>
+      <li  onClick={()=> navigate("/")}>
         <MdHome size={22}/>
         <span>Home</span>
       </li>
