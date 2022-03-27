@@ -3,10 +3,26 @@ import "./_header.scss"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineSearch } from "react-icons/ai"
 import { MdNotifications, MdApps } from 'react-icons/md'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 // import { useHistory } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
 
 const Header = ({handleToggleSidebar}) => {
+
+
+  const [input, setInput] = useState("");
+
+  const navigate = useNavigate();
+
+  const onSubmit = (e) => {
+
+    e.preventDefault()
+
+    navigate(`search/${input}`)
+
+  }
+
   return (
     <div className="header">
       <div>
@@ -19,8 +35,8 @@ const Header = ({handleToggleSidebar}) => {
       </div>
       
       <form>
-        <input type="text" placeholder="Search"/>
-        <button type="submit">
+        <input type="text" placeholder="Search" value={input} onChange={ e => setInput(e.target.value)}/>
+        <button type="submit" onClick={onSubmit}>
           <AiOutlineSearch size={26} style={{
             color: "#fff"
           }}/>

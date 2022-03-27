@@ -77,6 +77,7 @@ const Video = ({video}) => {
                alt={"thumbnail"}
                effect="blur"
                src={medium.url} 
+               
             />
          <span className="video__duration">{_duration}</span>
          </div>

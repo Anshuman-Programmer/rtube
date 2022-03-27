@@ -38,7 +38,7 @@ const HomeScreen = () => {
           {!loading ? videos.map((video, i)=>(
             <Video key={i} video={video}/>
           )) : (           
-            [...Array(24).map(()=><SkeletonVideo/>)]
+            [...Array(24).map((a,i)=><SkeletonVideo key={(i)}/>)]
           )}
         </div>
       </InfiniteScroll>

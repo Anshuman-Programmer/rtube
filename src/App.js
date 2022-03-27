@@ -7,6 +7,7 @@ import "./_app.scss"
 import { Routes, Route, Navigate, useNavigate} from "react-router-dom"
 import { useSelector } from "react-redux";
 import WatchScreen from "./screens/watchScreen/WatchScreen";
+import SearchScreen from "./screens/searchScreen/SearchScreen";
 
 const Layout = ({children}) => {
   
@@ -49,14 +50,19 @@ function App() {
             <HomeScreen/>
           </Layout> 
         } />
-        <Route path="/search" element={ 
+        <Route path="/search/:query" element={ 
           <Layout>
-            <h1>Search</h1>
+            <SearchScreen/>
           </Layout> 
         } />
         <Route path="/watch/:id" element={ 
           <Layout>
             <WatchScreen/>
+          </Layout> 
+        } />
+        <Route path="/channel/:id" element={ 
+          <Layout>
+            channel
           </Layout> 
         } />
         <Route path="/auth" element={<LoginScreen/>} />

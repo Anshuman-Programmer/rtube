@@ -9,9 +9,12 @@
         .lazy-load-image-background{
 
             min-height: 150px;
+            object-fit: cover;
 
             img{
                 width: 100%;
+                object-fit: cover;
+                height: 100%;
             }
             
         }

@@ -1,0 +1,79 @@
+.searchVideo{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    &__left{
+        width: 40%;
+        margin-right: 18px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        position: relative;
+
+        .thumbnail{
+            width: 100%;
+        }
+
+        &__channel{
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+
+            .channelIcon{
+            width: 100%;
+            align-self: center;
+            border-radius: 50%;
+            }
+        }
+        
+        span{
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.808);
+            padding: 0.2rem;
+            border-radius: 3px;
+        }
+    }
+
+    &__right{
+        width: 60%;
+
+        &__heading{
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        span{
+            font-size: 14px;
+            color: rgb(175, 175, 175);
+        }
+
+        &__channel{
+
+            display: flex;
+            align-items: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            cursor: pointer;
+
+            img{
+
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 12px;
+    
+            }
+
+        }
+
+        p{
+            font-size: 14px;
+            color: rgb(175, 175, 175);
+        }
+
+    }
+
+}

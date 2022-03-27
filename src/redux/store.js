@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import { authReducer } from "./reducers/auth.reducer"
 import { channelVideoReducer } from "./reducers/channel.reducer"
 import { commentListReducer } from "./reducers/commnets.reducer"
-import { homeVideosReducer, relatedVideoReducer, selectedVideoReducer } from "./reducers/video.reducer"
+import { homeVideosReducer, relatedVideoReducer, searchedVideosReducer, selectedVideoReducer } from "./reducers/video.reducer"
 
 // const initialState = {
 //     name: "Anshuman",
@@ -20,7 +20,8 @@ const rootReducer = combineReducers({
     selectedVideo: selectedVideoReducer,
     channelDetails: channelVideoReducer,
     commentList: commentListReducer,
-    relatedVideos: relatedVideoReducer
+    relatedVideos: relatedVideoReducer,
+    seachedVideos: searchedVideosReducer,
 })
 
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)))
