@@ -44,7 +44,7 @@ const WatchScreen = () => {
       </div>
       <div className='watchScreen__right'>
         {
-          !loading && videos ? videos?.filter(video => video.snippet).map((video)=> <VideoHozizontal video={video} key={video.id.videoId}/>) : (<SkeletonTheme>
+          (!loading && relatedVideoLoading) && videos ? videos?.filter(video => video.snippet).map((video)=> <VideoHozizontal video={video} key={video.id.videoId}/>) : (<SkeletonTheme>
               <Skeleton width={"100%"} height="130px" count={15}/>
             </SkeletonTheme>)
         }

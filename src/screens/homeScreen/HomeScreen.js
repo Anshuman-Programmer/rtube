@@ -30,15 +30,15 @@ const HomeScreen = () => {
       <CategoriesBar/>
       <InfiniteScroll
         dataLength={videos.length}
-        // next={fetchData}
+        next={fetchData}
         hasMore={videos.length < 55 ? true : false}
-        loader={<div className="home__screen__grid">{[...Array(20)].map(() => <SkeletonVideo/>)}</div>}
+        loader={<div className="home__screen__grid">{[...Array(20)].map((a,i) => <SkeletonVideo key={i}/>)}</div>}
       >
         <div className="home__screen__grid">
           {!loading ? videos.map((video, i)=>(
             <Video key={i} video={video}/>
           )) : (           
-            [...Array(24).map((a,i)=><SkeletonVideo key={(i)}/>)]
+            [...Array(24).map((a,i)=><SkeletonVideo key={i}/>)]
           )}
         </div>
       </InfiniteScroll>

@@ -37,7 +37,7 @@ const Comments = ({videoId, totalComments}) => {
       <div className="comments__section"> 
         <div className="comments__section__single">
           <div className="comments__section__single__left">
-            <img src="https://cdn.dribbble.com/users/1346761/screenshots/7041513/media/dee97a1b0d22229724cc6022675151b2.png?compress=1&resize=400x300&vertical=top" alt="channal_icon"/>
+            <img src={photoURL} alt="channal_icon"/>
           </div>
           <form className="comments__section__single__form">
             <input type="text"/>

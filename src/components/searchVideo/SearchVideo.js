@@ -18,13 +18,16 @@ const SearchVideo = ({video}) => {
             description,
             publishedAt,
             thumbnails,
-            channelId
+            channelId,
+            resourceId
         }
     } = video
 
     const [views, setViews] = useState(null)
     const [duration, setDuration] = useState(null)
     const [channelIcon, setChannelIcon] = useState(null)
+    const isVideo = kind === "youtube#video"
+    const navigate = useNavigate()
 
     useEffect(() => {
         const get_channel_icon = async () => {
@@ -54,11 +57,9 @@ const SearchVideo = ({video}) => {
            setDuration(items[0].contentDetails.duration)
            setViews(items[0].statistics.viewCount)
         }
-        get_video_details()
-     }, [videoId])
+        if(isVideo) {get_video_details()}
+     }, [videoId, isVideo])
 
-    const isVideo = kind === "youtube#video"
-    const navigate = useNavigate()
 
     const handleSearchClick = (e) => {
         e.preventDefault();
@@ -66,7 +67,12 @@ const SearchVideo = ({video}) => {
         if(isVideo){
             navigate(`/watch/${videoId}`)
         }else{
-            navigate(`/channel/${channelId}`)
+            if(kind === "youtube#channel"){
+                navigate(`/channel/${channelId}`)
+            } else {
+                navigate(`/channel/${resourceId.channelId}`)
+            }
+            
         }
 
         

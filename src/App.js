@@ -8,6 +8,8 @@ import { Routes, Route, Navigate, useNavigate} from "react-router-dom"
 import { useSelector } from "react-redux";
 import WatchScreen from "./screens/watchScreen/WatchScreen";
 import SearchScreen from "./screens/searchScreen/SearchScreen";
+import SubscriptionScreen from "./screens/subscriptionScreen/SubscriptionScreen";
+import ChannelScreen from "./screens/channelScreen/ChannelScreen";
 
 const Layout = ({children}) => {
   
@@ -60,9 +62,14 @@ function App() {
             <WatchScreen/>
           </Layout> 
         } />
-        <Route path="/channel/:id" element={ 
+        <Route path="/channel/:channelId" element={ 
           <Layout>
-            channel
+            <ChannelScreen/>
+          </Layout> 
+        } />
+        <Route path="/feed/subscriptions" element={ 
+          <Layout>
+            <SubscriptionScreen/>
           </Layout> 
         } />
         <Route path="/auth" element={<LoginScreen/>} />

@@ -1,12 +1,12 @@
 
 import "./_videoHorizontal.scss"
-import numeral from "numeral";
+// import numeral from "numeral";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 
 const VideoHozizontal = ({video}) => {
 
-  const {id, snippet: { chennelId, channelTitle, description, title, publishedAt, thumbnails}} = video
+  const {id, snippet: { channelTitle, title, publishedAt, thumbnails}} = video
 
   const navigate = useNavigate()
 

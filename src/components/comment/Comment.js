@@ -10,7 +10,7 @@ const Comment = ({comment}) => {
     <div className="comments__section"> 
         <div className="comments__section__single">
           <div className="comments__section__single__left">
-            <img src={authorProfileImageUrl}/>
+            <img src={authorProfileImageUrl} alt="author_profile_image"/>
           </div>
           <div className="comments__section__single__right">
             <p className="comments__section__single__right__top">{authorDisplayName} <span>{moment(publishedAt).fromNow()}</span></p>

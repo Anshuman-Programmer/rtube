@@ -1,5 +1,5 @@
 
-import { HOME_VIDEOS_FAIL, HOME_VIDEOS_REQUEST, HOME_VIDEOS_SUCCESS, RELATED_VIDEO_FAIL, RELATED_VIDEO_REQUEST, RELATED_VIDEO_SUCCESS, SEARCHED_VIDEO_FAIL, SEARCHED_VIDEO_REQUEST, SEARCHED_VIDEO_SUCCESS, SELECTED_VIDEO_FAILED, SELECTED_VIDEO_REQUEST, SELECTED_VIDEO_SUCCESS } from "../actionTypes"
+import { CHANNEL_VIDEO_FAIL, CHANNEL_VIDEO_REQUEST, CHANNEL_VIDEO_SUCCESS, HOME_VIDEOS_FAIL, HOME_VIDEOS_REQUEST, HOME_VIDEOS_SUCCESS, RELATED_VIDEO_FAIL, RELATED_VIDEO_REQUEST, RELATED_VIDEO_SUCCESS, SEARCHED_VIDEO_FAIL, SEARCHED_VIDEO_REQUEST, SEARCHED_VIDEO_SUCCESS, SELECTED_VIDEO_FAILED, SELECTED_VIDEO_REQUEST, SELECTED_VIDEO_SUCCESS, SUBSCRIPTION_CHANNEL_FAIL, SUBSCRIPTION_CHANNEL_REQUEST, SUBSCRIPTION_CHANNEL_SUCCESS } from "../actionTypes"
 
 import {request} from "../../api"
 
@@ -157,5 +157,77 @@ export const getVideosBySearch = (keyword) => async (dispatch) => {
             type: SEARCHED_VIDEO_FAIL,
             payload: error.message
         })
+    }
+}
+
+export const getSubscriptionChannel = () => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: SUBSCRIPTION_CHANNEL_REQUEST,
+        })
+       const { data } = await request('/subscriptions', {
+          params: {
+             part: 'snippet,contentDetails',
+             mine: true,
+          },
+          headers: {
+             Authorization: `Bearer ${getState().auth.accessToken}`,
+          },
+       })
+       dispatch({
+          type: SUBSCRIPTION_CHANNEL_SUCCESS,
+          payload: data.items,
+       })
+    } catch (error) {
+       console.log(error.response.data)
+       dispatch({
+        type: SUBSCRIPTION_CHANNEL_FAIL,
+        payload: error.response.data,
+     })
+    }
+}
+
+export const getVideosByChannel = (id) => async (dispatch, getState) => {
+    try {
+
+        dispatch({
+            type: CHANNEL_VIDEO_REQUEST
+        })
+
+        const { data : {items} } = await request("/channels",{
+            params:{
+                part: "contentDetails",
+                id: id
+            },
+            headers: {
+                Authorization: `Bearer ${getState().auth.accessToken}`,
+            },
+        })
+
+        const uploadPlaylistId = items[0].contentDetails.relatedPlaylists.uploads
+
+        const { data } = await request("/playlistItems",{
+            params:{
+                part: 'snippet,contentDetails',
+                playlistId: uploadPlaylistId,
+                maxResults: 30,
+            },
+            headers: {
+                Authorization: `Bearer ${getState().auth.accessToken}`,
+            },
+        })
+        
+        dispatch({
+            type: CHANNEL_VIDEO_SUCCESS,
+            payload: data.items
+        })
+        
+    } catch (error) {
+
+        dispatch({
+            type: CHANNEL_VIDEO_FAIL,
+            payload: error.message
+        })
+        
     }
 }

@@ -9,6 +9,34 @@
     top: 56px;
     left: 0;
 
+    a{
+        text-decoration: none;
+        color: white;
+        li{
+            list-style: none;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            // padding-left: 24px;
+
+
+            svg{
+                flex: 0.3
+            }
+
+            span{
+                flex: 0.7;
+                text-decoration: none;
+            }
+
+            &:hover{
+                background-color: rgba(245, 245, 245, 0.05);
+            }
+        }
+
+    }
+
     li{
         list-style: none;
         height: 46px;
@@ -17,18 +45,21 @@
         cursor: pointer;
         // padding-left: 24px;
 
+
         svg{
             flex: 0.3
         }
 
         span{
-            flex: 0.7
+            flex: 0.7;
+            text-decoration: none;
         }
 
         &:hover{
             background-color: rgba(245, 245, 245, 0.05);
         }
     }
+
 
     hr{
         border-color: $black-primary;
